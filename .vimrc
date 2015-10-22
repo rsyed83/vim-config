@@ -1,4 +1,4 @@
-# Taken from http://dougblack.io/words/a-good-vimrc.html
+" Taken from http://dougblack.io/words/a-good-vimrc.html
 
 colorscheme desert256v2 " awesome colorscheme
 
