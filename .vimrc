@@ -10,7 +10,16 @@ set softtabstop=4   " number of spaces in tab when editing
 
 set expandtab       " tabs are spaces
 
+set wrap                
+set linebreak
+set nolist              " list disables linebreak
+
 set number              " show line numbers
+set relativenumber      " show relative line numbers
+
+" This makes gj/gk move by virtual lines when used without a count, and by physical lines when used with a count.
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 set showcmd             " show command in bottom bar
 
@@ -38,3 +47,13 @@ endif
 
 " use tabs for Makefiles
 autocmd FileType make setlocal noexpandtab
+
+" Make Y yank everything from the cursor to the end of the line. This makes Y
+" act more like C or D because by default, Y yanks the current line (i.e. the
+" same as yy).
+noremap Y y$
+
+" Make Ctrl-e jump to the end of the current line in the insert mode. This is
+" handy when you are in the middle of a line and would like to go to its end
+" without switching to the normal mode.
+inoremap <C-e> <C-o>$
